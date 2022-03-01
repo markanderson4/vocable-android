@@ -136,7 +136,7 @@ abstract class BaseActivity : AppCompatActivity() {
     @CallSuper
     protected open fun subscribeToViewModel() {
         viewModel.showError.observe(this, Observer {
-            if (!sharedPrefs.getHeadTrackingEnabled()) {
+            if (sharedPrefs.getHeadTrackingEnabled()) {
                 getPointerView().isVisible = false
                 getErrorView().isVisible = false
                 return@Observer
